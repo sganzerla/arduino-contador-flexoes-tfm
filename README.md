@@ -5,7 +5,7 @@ Circuito simples para contar flexões de braço utilizando sensor ultrassônico 
 
 ### Demonstração prática (vídeo)
 <p>
- <a target="_blank" rel="noopener noreferrer" href="https://youtu.be/QIhPGDA-j7M" target="_blank">
+ <a target="_blank" rel="noopener noreferrer" href="https://youtu.be/gDvG_-5g_NA" target="_blank">
   <img src="https://user-images.githubusercontent.com/22710963/77712745-76222600-6fb3-11ea-8e81-2688be9c6730.png" alt="reset" style="max-width:100%;"></a>
 </p> 
 
