@@ -9,7 +9,7 @@
 #define LED_GREEN_PIN 10
 #define BUZZ_PIN 13
 
-uint32_t timer = 0; 
+uint32_t timer = 0;
 
 //Define os pinos que serão utilizados para ligação ao display
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
@@ -26,15 +26,28 @@ void setup()
 void loop()
 {
 
- long dist = (0.01723 * readUltrasonicDistance(TRIGGER_PIN, ECHO_PIN));
+  long dist = (0.01723 * readUltrasonicDistance(TRIGGER_PIN, ECHO_PIN));
 
-  contagem(dist);
+  contandoFlexoes(dist);
 
   Serial.println(dist);
   exibindoTexto(dist);
+
+  resetContagem();
 }
 
-void contagem(long distancia)
+void resetContagem()
+{
+  if (!digitalRead(BUTTON_RESET_PIN)){
+      flexao =  0;
+       digitalWrite(LED_GREEN_PIN, LOW);
+              digitalWrite(LED_RED_PIN, LOW);
+
+    contando = false;
+  }
+}
+
+void contandoFlexoes(long distancia)
 {
   noTone(BUZZ_PIN);
   if (distancia < 5)
@@ -42,24 +55,26 @@ void contagem(long distancia)
     digitalWrite(LED_RED_PIN, HIGH);
     digitalWrite(LED_GREEN_PIN, LOW);
     contando = true;
-  }
-
-  if (distancia > 20 && contando)
+  } else if (distancia > 20 && contando)
   {
     digitalWrite(LED_RED_PIN, LOW);
     digitalWrite(LED_GREEN_PIN, HIGH);
 
-    if (contando){
+    if (contando)
+    {
       flexao++;
       tone(BUZZ_PIN, 500);
       delay(250);
-    } 
+    }
     contando = false;
   }
 }
 
 void setandoPinos()
 {
+
+  pinMode(BUTTON_RESET_PIN, INPUT_PULLUP);
+  digitalWrite(BUTTON_RESET_PIN, HIGH);
 
   pinMode(TRIGGER_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
@@ -77,7 +92,6 @@ void setandoPinos()
 void exibindoTexto(long texto)
 {
 
-  // Exibe no display LCD o valor da humidade
   lcd.setCursor(0, 0); // Define o cursor na posição de início
   lcd.print("Qtd: ");
   lcd.print(flexao);
@@ -86,7 +100,6 @@ void exibindoTexto(long texto)
   if (millis() - timer >= 1000)
   {
 
-    // Exibe no display LCD o valor da temperatura
     lcd.setCursor(0, 1); // Define o cursor na posição de início
     lcd.print("Dist: ");
     lcd.print(texto);
