@@ -17,6 +17,10 @@ LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 int flexao = 0;
 bool contando = false;
 
+// variáveis limites de altura da distância
+int dist_abaixo_cm = 5;
+int dist_acima_cm = 25;
+
 void setup()
 {
   setandoPinos();
@@ -50,12 +54,12 @@ void resetContagem()
 void contandoFlexoes(long distancia)
 {
   noTone(BUZZ_PIN);
-  if (distancia < 5)
+  if (distancia < dist_abaixo_cm)
   {
     digitalWrite(LED_RED_PIN, HIGH);
     digitalWrite(LED_GREEN_PIN, LOW);
     contando = true;
-  } else if (distancia > 20 && contando)
+  } else if (distancia > dist_acima_cm && contando)
   {
     digitalWrite(LED_RED_PIN, LOW);
     digitalWrite(LED_GREEN_PIN, HIGH);

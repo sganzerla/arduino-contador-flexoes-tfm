@@ -74,6 +74,31 @@ Circuito simples para contar flexões de braço utilizando sensor ultrassônico 
 <p><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/22710963/77499606-5662f480-6e31-11ea-96fd-9e268dceb50f.png">
   <img src="https://user-images.githubusercontent.com/22710963/77499606-5662f480-6e31-11ea-96fd-9e268dceb50f.png" alt="reset" style="max-width:100%;"></a></p> 
 
+
+### Configuração:
+
+Para ajustar distância para contar abaixo e acima altere as váriaveis abaixo:
+
+```
+
+// variáveis limites de altura da distância
+int dist_abaixo_cm = 5;
+int dist_acima_cm = 25;
+
+
+```
+
+Orientações sobre o uso:
+
+- Contagem começa no alto na luz verde.
+
+- Posicione o sensor na altura do pescoço.
+
+- Não permita que a pessoa esteja com corrente ou adereço solto, com cabelo longo solto, camisa folgada que possa interferir no sinal entre o sensor com a pessoa (mais ou menos na altura do pescoço).
+
+- Após encerrada uma sessão pode-se zerar o contador clicando no botão.
+
+
 ### Links úteis
 
 - [IDE Arduino](https://www.arduino.cc/en/Main/Software)
