@@ -58,7 +58,7 @@ Circuito simples para contar flexões de braço utilizando sensor ultrassônico 
 <p><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/22710963/77810160-d24b7f80-7071-11ea-9371-8eb08853b890.png">
   <img src="https://user-images.githubusercontent.com/22710963/77810160-d24b7f80-7071-11ea-9371-8eb08853b890.png" alt="reset" style="max-width:100%;"></a></p>     
    
-    ### g) LEDS comuns de 4mm
+ ### g) LEDS comuns de 4mm
 <p><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/22710963/77499523-14d24980-6e31-11ea-9ee1-2f44635a20be.png">
   <img src="https://user-images.githubusercontent.com/22710963/77499523-14d24980-6e31-11ea-9ee1-2f44635a20be.png" alt="reset" style="max-width:100%;"></a></p> 
 

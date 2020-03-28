@@ -9,8 +9,7 @@
 #define LED_GREEN_PIN 10
 #define BUZZ_PIN 13
 
-uint32_t timer = 0;
-long distancia;
+uint32_t timer = 0; 
 
 //Define os pinos que serão utilizados para ligação ao display
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
@@ -27,8 +26,17 @@ void setup()
 void loop()
 {
 
-  distancia = (0.01723 * readUltrasonicDistance(TRIGGER_PIN, ECHO_PIN));
+ long dist = (0.01723 * readUltrasonicDistance(TRIGGER_PIN, ECHO_PIN));
 
+  contagem(dist);
+
+  Serial.println(dist);
+  exibindoTexto(dist);
+}
+
+void contagem(long distancia)
+{
+  noTone(BUZZ_PIN);
   if (distancia < 5)
   {
     digitalWrite(LED_RED_PIN, HIGH);
@@ -41,12 +49,13 @@ void loop()
     digitalWrite(LED_RED_PIN, LOW);
     digitalWrite(LED_GREEN_PIN, HIGH);
 
-    flexao = (contando ? flexao + 1 : flexao);
+    if (contando){
+      flexao++;
+      tone(BUZZ_PIN, 500);
+      delay(250);
+    } 
     contando = false;
   }
-
-  Serial.println(distancia);
-  exibindoTexto(distancia);
 }
 
 void setandoPinos()
