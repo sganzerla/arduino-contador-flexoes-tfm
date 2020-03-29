@@ -88,7 +88,7 @@ int dist_acima_cm = 25;
 
 ```
 
-Orientações sobre o uso:
+### Orientações sobre o uso:
 
 - Contagem começa no alto na luz verde.
 
